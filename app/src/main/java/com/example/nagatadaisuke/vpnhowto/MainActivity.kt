@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             check += i
             val caps = cm.getNetworkCapabilities(networks[i])
             if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
-                Toast.makeText(this, "VPN", Toast.LENGTH_LONG).show()
+                Log.i("VPN", "VPN" )
             } else {
                 Log.i("NOTVPN", "NOTVPN" )
             }
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     fun vpn(){
         if (check == 1) {
             Log.i("VPN", "VPN" )
+            Toast.makeText(this, "VPN", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "NOT_VPN", Toast.LENGTH_LONG).show()
         }
