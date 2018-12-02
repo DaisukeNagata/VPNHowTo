@@ -16,13 +16,13 @@ class VpnCheck {
             val caps = cm.getNetworkCapabilities(networks[i])
             if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
                 Log.i("VPN", "VPN" )
-                check += i
+                check = i
             } else {
                 Log.i("NOTVPN", "NOTVPN" )
-                check += i
+                check = i
             }
         }
-        if (check == 0) {
+        if (check == 1) {
             Log.i("VPN", "VPN" )
             Toast.makeText(con, "VPN", Toast.LENGTH_LONG).show()
         } else {
