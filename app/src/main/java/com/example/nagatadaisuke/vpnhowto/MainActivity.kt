@@ -8,10 +8,12 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    var check: Int = 0
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,15 +23,24 @@ class MainActivity : AppCompatActivity() {
         val networks = cm.allNetworks
 
         for (i in networks.indices) {
+            check += i
             val caps = cm.getNetworkCapabilities(networks[i])
             if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
-                Log.i("VPN", "VPN" )
+                Toast.makeText(this, "VPN", Toast.LENGTH_LONG).show()
             } else {
                 Log.i("NOTVPN", "NOTVPN" )
-                if (i == 1) {
-                    Toast.makeText(this, "NOT_VPN", Toast.LENGTH_LONG).show()
-                }
             }
+        }
+        button.setOnClickListener {
+            vpn()
+        }
+    }
+
+    fun vpn(){
+        if (check == 1) {
+            Log.i("VPN", "VPN" )
+        } else {
+            Toast.makeText(this, "NOT_VPN", Toast.LENGTH_LONG).show()
         }
     }
 }
