@@ -19,6 +19,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        button.setOnClickListener {
+            vpn()
+        }
+    }
+
+    fun vpn(){
         var cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networks = cm.allNetworks
 
@@ -31,12 +37,6 @@ class MainActivity : AppCompatActivity() {
                 Log.i("NOTVPN", "NOTVPN" )
             }
         }
-        button.setOnClickListener {
-            vpn()
-        }
-    }
-
-    fun vpn(){
         if (check == 1) {
             Log.i("VPN", "VPN" )
             Toast.makeText(this, "VPN", Toast.LENGTH_LONG).show()
