@@ -40,8 +40,10 @@ class MainActivity : AppCompatActivity() {
         if (check == 1) {
             Log.i("VPN", "VPN" )
             Toast.makeText(this, "VPN", Toast.LENGTH_LONG).show()
+            check = 0
         } else {
             Toast.makeText(this, "NOT_VPN", Toast.LENGTH_LONG).show()
+            check = 0
         }
     }
 }
