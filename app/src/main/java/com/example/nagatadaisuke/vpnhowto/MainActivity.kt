@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
                 Log.i("VPN", "VPN" )
             } else {
                 Log.i("NOTVPN", "NOTVPN" )
+                if (i == 1) {
+                    Toast.makeText(this, "NOT_VPN", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
